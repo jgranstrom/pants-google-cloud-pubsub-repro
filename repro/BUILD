@@ -11,7 +11,7 @@ scala_sources(
         # Error: Could not find or load main class repro.Main
         # Caused by: java.lang.ClassNotFoundException: repro.Main
         
-        # "//:google-cloud-pubsub"
+        "//:google-cloud-pubsub"
     ]
 )
 
@@ -21,4 +21,10 @@ deploy_jar(
         ":repro",
     ],
     main = "repro.Main",
+    exclude_files = [
+        r"^META-INF/.*\.SF$",
+        r"^META-INF/.*\.DSA$",
+        r"^META-INF/.*\.RSA$",
+        r"^META-INF/.*\.EC$",
+    ]
 )
